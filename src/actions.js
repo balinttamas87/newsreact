@@ -12,11 +12,21 @@ const endPoints = {
     }
 };
 
-const url = entryPointURL + endPoints.main.topHeadlines + "?apiKey=" + apiKey + "&country=gb";
+// const url = entryPointURL + endPoints.main.topHeadlines + "?apiKey=" + apiKey + "&country=gb";
 
-const req = new Request(url);
+// const req = new Request(url);
 
-export const getHeadlines = () => (
-    fetch(req)
-        .then(res => res.json())
-)
+// export const getHeadlines = () => (
+//     fetch(req)
+//         .then(res => res.json())
+// )
+
+
+export const getHeadlines = (countryCode = "gb") => {
+
+	const url = entryPointURL + endPoints.main.topHeadlines + "?apiKey=" + apiKey + "&country=" + countryCode;
+
+	const req = new Request(url);
+	
+	return fetch(req).then(res => res.json())
+}

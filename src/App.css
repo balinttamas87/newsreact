@@ -32,3 +32,15 @@
   flex-direction: row;
   flex-wrap: wrap;
 }
+.getHeadlinesBtn {
+  background-color: black;
+  border: 2px solid white;
+  color: white;
+  height: 40px;
+  width: 40px;
+}
+.btnWrapper {
+  display: flex;
+  justify-content: space-between;
+  width: 230px;
+}

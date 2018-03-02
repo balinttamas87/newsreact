@@ -8,17 +8,41 @@ class App extends Component {
     super(props);
 
     this.state = {
-      articles: [],
-      headlines: "uk"
+      articles: []
     };
 
     this.getHeadlines = this.getHeadlines.bind(this);
+    this.getHeadlinesForUK = this.getHeadlinesForUK.bind(this);
+    this.getHeadlinesForUS = this.getHeadlinesForUS.bind(this);
+    this.getHeadlinesForCA = this.getHeadlinesForCA.bind(this);
+    this.getHeadlinesForAU = this.getHeadlinesForAU.bind(this);
+    this.getHeadlinesForNZ = this.getHeadlinesForNZ.bind(this);
 
   }
 
-  getHeadlines() {
-    this.props.getHeadlines()
+  getHeadlines(countryCode) {
+    this.props.getHeadlines(countryCode)
       .then(({articles}) => this.setState({articles}))
+  }
+
+  getHeadlinesForUK() {
+    this.getHeadlines("gb");
+  }
+
+  getHeadlinesForUS() {
+    this.getHeadlines("us");
+  }
+
+  getHeadlinesForCA() {
+    this.getHeadlines("ca");
+  }
+
+  getHeadlinesForAU() {
+    this.getHeadlines("au");
+  }
+
+  getHeadlinesForNZ() {
+    this.getHeadlines("nz");
   }
 
   render() {
@@ -27,12 +51,12 @@ class App extends Component {
         <header className="App-header">
           {/*<img src={logo} className="App-logo" alt="logo" />*/}
           <h1 className="App-title">News - Headlines</h1>
-          <div>
-            <button onClick={this.getHeadlines}>UK</button>
-            <button onClick={this.getHeadlines}>US</button>
-            <button onClick={this.getHeadlines}>CA</button>
-            <button onClick={this.getHeadlines}>AU</button>
-            <button onClick={this.getHeadlines}>NZ</button>
+          <div className="btnWrapper">
+            <button className="getHeadlinesBtn" onClick={this.getHeadlinesForUK}>UK</button>
+            <button className="getHeadlinesBtn" onClick={this.getHeadlinesForUS}>US</button>
+            <button className="getHeadlinesBtn" onClick={this.getHeadlinesForCA}>CA</button>
+            <button className="getHeadlinesBtn" onClick={this.getHeadlinesForAU}>AU</button>
+            <button className="getHeadlinesBtn" onClick={this.getHeadlinesForNZ}>NZ</button>
           </div>
         </header>
 {/*        <p className="App-intro">
